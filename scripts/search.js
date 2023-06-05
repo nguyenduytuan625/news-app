@@ -102,14 +102,14 @@ document.addEventListener('keypress', function (e) {
 
 // Next page
 nextBtn.addEventListener('click', function () {
-  curPageNum += 1;
+  if (curPageNum * pageSize < totalResults) { curPageNum += 1; }
   renderPageNum();
   if (currentUser.username) { currentUser.getNews(); }
 });
 
 // Previous page
 prevBtn.addEventListener('click', function () {
-  curPageNum -= 1;
+  if (curPageNum > 1) { curPageNum -= 1; }
   renderPageNum();
   if (currentUser.username) { currentUser.getNews(); }
 });
